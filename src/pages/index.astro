@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, nav, hero, about, services, certifications as c, gallery } from '../data/site';
+---
+<Layout>
+  <header class="site-header" id="top">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="LMJ Enterprise — accueil"><img src={site.logo} alt="LMJ Enterprise" /></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Ouvrir le menu" />
+      <label for="nav-toggle" class="burger" aria-hidden="true"><span></span></label>
+      <div class="menu">
+        <nav aria-label="Principal"><ul>{nav.map((n) => <li><a class="link" href={n.href}>{n.label}</a></li>)}</ul></nav>
+        <div class="social">
+          <a href={site.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          <a href={site.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero" style={`--hero:url(${hero.image})`}>
+      <div class="wrap">
+        <h1>{hero.title}</h1>
+        <p>French polishing, dry lining, carpentry, cladding, fire stopping and more — from small sites to large contracts.</p>
+        <div class="actions">
+          <a class="btn" href="#contact">Get a free evaluation</a>
+          <a class="btn ghost" href="#services">Our services</a>
+        </div>
+      </div>
+    </div>
+    <section class="videostrip" aria-hidden="true"><video src={hero.video} autoplay muted loop playsinline preload="metadata"></video></section>
+
+    <section class="about" id="about"><div class="wrap">
+      <h2>About Us</h2>
+      {about.paragraphs.map((p) => <p>{p}</p>)}
+      <div class="thumbs">{about.images.map((src) => <img src={src} alt="LMJ project" loading="lazy" />)}</div>
+      <a class="btn" href="#services">Find out more</a>
+    </div></section>
+
+    <section class="services" id="services"><div class="wrap">
+      <div class="center"><h2>Our Services</h2></div>
+      <div class="cards">
+        {services.map((s) => (
+          <article class="card"><img src={s.image} alt={s.title} loading="lazy" /><div><h3>{s.title}</h3><p>{s.text}</p></div></article>
+        ))}
+      </div>
+    </div></section>
+
+    <section class="certs" id="certifications"><div class="wrap">
+      <h2>Our Certifications</h2>
+      <p class="lead">{c.intro}</p>
+      <h3>Management</h3>
+      <ul>{c.management.map((i) => <li>{i}</li>)}</ul>
+      <h3>Site Operatives</h3>
+      <ul>{c.operatives.map((i) => <li>{i}</li>)}</ul>
+      <div class="certrow">
+        {c.certs.map((x) => <a href={x.pdf} target="_blank" rel="noopener"><img src={x.img} alt="Certificate (PDF)" loading="lazy" /></a>)}
+        {c.logos.map((src) => <img class="logo" src={src} alt="Accreditation logo" loading="lazy" />)}
+      </div>
+      <h3>Responsibilities</h3>
+      <p>{c.responsibilities}</p>
+      <img class="safety" src={c.safetyImage} alt="" loading="lazy" />
+    </div></section>
+
+    <section class="gallery" id="gallery"><div class="wrap">
+      <div class="center"><h2>Our Team in Action</h2></div>
+      <div class="grid">{gallery.map((src) => <img src={src} alt="LMJ team at work" loading="lazy" />)}</div>
+    </div></section>
+  </main>
+
+  <footer class="site-footer" id="contact"><div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Contact Us</h2>
+        <p>{site.address}</p>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p><a href={`tel:${site.phone}`}>{site.phone}</a></p>
+      </div>
+      <form action={`mailto:${site.email}`} method="post" enctype="text/plain">
+        <div><label for="f-name">Name</label><input id="f-name" name="name" required autocomplete="name" /></div>
+        <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email" /></div>
+        <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" /></div>
+        <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" rows="5"></textarea></div>
+        <button class="btn" type="submit">Submit</button>
+      </form>
+    </div>
+    <p class="copy">CoFinishing LTD © 2024. ALL RIGHTS RESERVED.<br />
+      Directed by <a href="https://www.linkedin.com/in/natalia-panfilii-jabinschi-a5b1a7145/" target="_blank" rel="noopener">Natalia Panfilii</a></p>
+  </div></footer>
+</Layout>

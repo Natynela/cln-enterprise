@@ -14,32 +14,42 @@ import { site, nav, hero, about, services, certifications as c, gallery } from '
           <a href={site.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
           <a href={site.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
         </div>
+        <a class="btn header-cta" href="#contact">Get in touch</a>
       </div>
     </div>
   </header>
 
   <main>
     <div class="hero" style={`--hero:url(${hero.image})`}>
-      <div class="wrap">
+      <div class="wrap hero-content">
+        <p class="eyebrow">Construction · Finishing · Refurbishment</p>
         <h1>{hero.title}</h1>
         <p>French polishing, dry lining, carpentry, cladding, fire stopping and more — from small sites to large contracts.</p>
         <div class="actions">
           <a class="btn" href="#contact">Get a free evaluation</a>
           <a class="btn ghost" href="#services">Our services</a>
         </div>
+        <div class="hero-note"><span></span> Reliable workmanship, delivered with care</div>
       </div>
     </div>
-    <section class="videostrip" aria-hidden="true"><video src={hero.video} autoplay muted loop playsinline preload="metadata"></video></section>
+    <section class="videostrip" aria-label="LMJ Enterprise project showcase"><video src={hero.video} autoplay muted loop playsinline preload="metadata"></video></section>
 
-    <section class="about" id="about"><div class="wrap">
-      <h2>About Us</h2>
-      {about.paragraphs.map((p) => <p>{p}</p>)}
-      <div class="thumbs">{about.images.map((src) => <img src={src} alt="LMJ project" loading="lazy" />)}</div>
-      <a class="btn" href="#services">Find out more</a>
+    <section class="about" id="about"><div class="wrap about-layout">
+      <div class="about-copy">
+        <p class="eyebrow">Built on experience</p>
+        <h2>Quality work. <span>Lasting results.</span></h2>
+        {about.paragraphs.map((p, index) => <p class={index === 1 ? 'specialization' : undefined}>{p}</p>)}
+        <a class="btn" href="#services">Explore our services</a>
+      </div>
+      <div class="thumbs">{about.images.map((src) => <img src={src} alt="LMJ team and completed project" loading="lazy" />)}</div>
     </div></section>
 
     <section class="services" id="services"><div class="wrap">
-      <div class="center"><h2>Our Services</h2></div>
+      <div class="section-heading center">
+        <p class="eyebrow">What we do</p>
+        <h2>Complete solutions, expertly delivered</h2>
+        <p>From specialist finishes to full refurbishment support, our experienced team is ready to help.</p>
+      </div>
       <div class="cards">
         {services.map((s) => (
           <article class="card"><img src={s.image} alt={s.title} loading="lazy" /><div><h3>{s.title}</h3><p>{s.text}</p></div></article>
@@ -48,23 +58,33 @@ import { site, nav, hero, about, services, certifications as c, gallery } from '
     </div></section>
 
     <section class="certs" id="certifications"><div class="wrap">
-      <h2>Our Certifications</h2>
-      <p class="lead">{c.intro}</p>
-      <h3>Management</h3>
-      <ul>{c.management.map((i) => <li>{i}</li>)}</ul>
-      <h3>Site Operatives</h3>
-      <ul>{c.operatives.map((i) => <li>{i}</li>)}</ul>
-      <div class="certrow">
-        {c.certs.map((x) => <a href={x.pdf} target="_blank" rel="noopener"><img src={x.img} alt="Certificate (PDF)" loading="lazy" /></a>)}
-        {c.logos.map((src) => <img class="logo" src={src} alt="Accreditation logo" loading="lazy" />)}
+      <div class="certs-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Safety and standards</p>
+          <h2>Qualified people. Trusted standards.</h2>
+          <p class="lead">{c.intro}</p>
+        </div>
+        <div class="cert-lists">
+          <div><h3>Management</h3><ul>{c.management.map((i) => <li>{i}</li>)}</ul></div>
+          <div><h3>Site operatives</h3><ul>{c.operatives.map((i) => <li>{i}</li>)}</ul></div>
+        </div>
+        <div class="certrow">
+          {c.certs.map((x) => <a href={x.pdf} target="_blank" rel="noopener noreferrer"><img src={x.img} alt="View certification PDF" loading="lazy" /></a>)}
+          {c.logos.map((src) => <img class="logo" src={src} alt="Accreditation logo" loading="lazy" />)}
+        </div>
+        <div class="responsibilities">
+          <div><h3>Our responsibilities</h3><p>{c.responsibilities}</p></div>
+          <img class="safety" src={c.safetyImage} alt="LMJ team member working safely on site" loading="lazy" />
+        </div>
       </div>
-      <h3>Responsibilities</h3>
-      <p>{c.responsibilities}</p>
-      <img class="safety" src={c.safetyImage} alt="" loading="lazy" />
     </div></section>
 
     <section class="gallery" id="gallery"><div class="wrap">
-      <div class="center"><h2>Our Team in Action</h2></div>
+      <div class="section-heading center">
+        <p class="eyebrow">The work speaks for itself</p>
+        <h2>Our team in action</h2>
+        <p>A look at the people, projects and details behind our work.</p>
+      </div>
       <div class="grid">{gallery.map((src) => <img src={src} alt="LMJ team at work" loading="lazy" />)}</div>
     </div></section>
   </main>
@@ -72,17 +92,21 @@ import { site, nav, hero, about, services, certifications as c, gallery } from '
   <footer class="site-footer" id="contact"><div class="wrap">
     <div class="contact">
       <div>
+        <p class="eyebrow">Let’s discuss your project</p>
         <h2>Contact Us</h2>
+        <p class="contact-intro">Tell us what you’re planning. We’ll be happy to discuss your requirements and provide an evaluation.</p>
         <p>{site.address}</p>
         <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
         <p><a href={`tel:${site.phone}`}>{site.phone}</a></p>
       </div>
       <form action={`mailto:${site.email}`} method="post" enctype="text/plain">
-        <div><label for="f-name">Name</label><input id="f-name" name="name" required autocomplete="name" /></div>
-        <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email" /></div>
-        <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" /></div>
-        <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" rows="5"></textarea></div>
-        <button class="btn" type="submit">Submit</button>
+        <div class="form-fields">
+          <div><label for="f-name">Name</label><input id="f-name" name="name" required autocomplete="name" /></div>
+          <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email" /></div>
+          <div class="full-field"><label for="f-subject">Subject</label><input id="f-subject" name="subject" /></div>
+          <div class="full-field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" rows="4"></textarea></div>
+        </div>
+        <button class="btn" type="submit">Send an enquiry</button>
       </form>
     </div>
     <p class="copy">CoFinishing LTD © 2024. ALL RIGHTS RESERVED.<br />

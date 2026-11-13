@@ -130,9 +130,6 @@ p { margin: 0 0 1rem; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: .85rem; }
 .hero-note { display: flex; align-items: center; gap: .6rem; margin-top: 2.3rem; color: rgba(255,255,255,.78); font-size: .9rem; }
 .hero-note span { width: 8px; height: 8px; border-radius: 50%; background: #c7d2e0; box-shadow: 0 0 0 5px rgba(199,210,224,.16); }
-.videostrip { padding: 0; overflow: hidden; background: var(--navy); }
-.videostrip video { width: 100%; height: clamp(96px, 12vw, 150px); object-fit: cover; }
-
 /* About */
 .about-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(2.5rem, 6vw, 6rem); }
 .about-copy h2 span { color: var(--brand); }
@@ -217,7 +214,6 @@ input:focus, textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px 
   .hero .actions { align-items: stretch; flex-direction: column; }
   .hero .actions .btn { width: 100%; }
   .hero-note { align-items: flex-start; font-size: .82rem; }
-  .videostrip video { height: 88px; }
   .thumbs { grid-template-rows: 1fr 1fr; gap: .65rem; min-height: 250px; }
   .cards { grid-template-columns: 1fr; gap: 1rem; }
   .certs-panel { padding: 1.25rem; border-radius: 20px; }

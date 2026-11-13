@@ -32,8 +32,6 @@ import { site, nav, hero, about, services, certifications as c, gallery } from '
         <div class="hero-note"><span></span> Reliable workmanship, delivered with care</div>
       </div>
     </div>
-    <section class="videostrip" aria-label="LMJ Enterprise project showcase"><video src={hero.video} autoplay muted loop playsinline preload="metadata"></video></section>
-
     <section class="about" id="about"><div class="wrap about-layout">
       <div class="about-copy">
         <p class="eyebrow">Built on experience</p>
@@ -69,7 +67,7 @@ import { site, nav, hero, about, services, certifications as c, gallery } from '
           <div><h3>Site operatives</h3><ul>{c.operatives.map((i) => <li>{i}</li>)}</ul></div>
         </div>
         <div class="certrow">
-          {c.certs.map((x) => <a href={x.pdf} target="_blank" rel="noopener noreferrer"><img src={x.img} alt="View certification PDF" loading="lazy" /></a>)}
+          {c.certs.map((x) => <img src={x.img} alt="Certification" loading="lazy" />)}
           {c.logos.map((src) => <img class="logo" src={src} alt="Accreditation logo" loading="lazy" />)}
         </div>
         <div class="responsibilities">

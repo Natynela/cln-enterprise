@@ -9,6 +9,6 @@
     "assets": "node scripts/download-assets.mjs"
   },
   "dependencies": {
-    "astro": "^5.0.0"
+    "astro": "^7.3.8"
   }
 }

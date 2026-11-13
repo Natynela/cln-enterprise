@@ -1,6 +1,12 @@
 // Fichiers locaux : public/assets/images/<nom de fichier>.
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+const asset = (path: string) => `${baseUrl}${path}`;
+
 export const img = (filename: string) =>
-  `/assets/images/${encodeURIComponent(filename).replace(/[!'()*]/g, (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`)}`;
+  asset(`assets/images/${encodeURIComponent(filename).replace(/[!'()*]/g, (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`)}`);
 
 export const site = {
   name: 'LMJ Enterprise',
@@ -26,7 +32,6 @@ export const nav = [
 export const hero = {
   title: 'Because Quality Matters!',
   image: img('925c0b_0cf384fafe56c29ed35d07cf832e1fca.webp'),
-  video: '/assets/files/hero.mp4',
 };
 
 export const about = {
@@ -72,8 +77,8 @@ export const certifications = {
   ],
   operatives: ['CSCS (Construction Skills Certification Scheme)', 'IPAF Training'],
   certs: [
-    { img: img('download (1).jpg'), pdf: '/assets/files/certificate-1.pdf' },
-    { img: img('R.jpg'), pdf: '/assets/files/certificate-2.pdf' },
+    { img: img('download (1).jpg') },
+    { img: img('R.jpg') },
   ],
   logos: [
     'w-900_h-500_m-cover_s-any__Chas-Logo2.jpg',

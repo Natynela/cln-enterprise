@@ -4,4 +4,5 @@ import { defineConfig } from 'astro/config';
 // Pour GitHub Pages sans domaine : site: 'https://<user>.github.io', base: '/<repo>'
 export default defineConfig({
   site: 'https://www.lmjenterprise.com',
+  base: process.env.ASTRO_BASE ?? '/',
 });

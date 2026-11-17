@@ -3,7 +3,7 @@ on:
   push: { branches: [main] }
   workflow_dispatch:
 permissions: { contents: read, pages: write, id-token: write }
-concurrency: { group: pages, cancel-in-progress: true }
+concurrency: { group: pages, cancel-in-progress: false }
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,9 +13,10 @@ jobs:
         with: { node-version: 22 }
       - run: npm install
       - run: npm run build
-      - run: npm run build -- --outDir dist/cln-enterprise
         env:
           ASTRO_BASE: /cln-enterprise
+      - name: Copy assets for the custom domain
+        run: mkdir -p dist/cln-enterprise && cp -R dist/assets dist/_astro dist/cln-enterprise/
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
   deploy:

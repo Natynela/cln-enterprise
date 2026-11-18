@@ -63,8 +63,14 @@ import { site, nav, hero, about, services, certifications as c, gallery } from '
           <p class="lead">{c.intro}</p>
         </div>
         <div class="cert-lists">
-          <div><h3>Management</h3><ul>{c.management.map((i) => <li>{i}</li>)}</ul></div>
-          <div><h3>Site operatives</h3><ul>{c.operatives.map((i) => <li>{i}</li>)}</ul></div>
+          <div class="cert-group">
+            <h3>Management <span>{c.management.length} qualifications</span></h3>
+            <ul>{c.management.map((i) => <li>{i}</li>)}</ul>
+          </div>
+          <div class="cert-group">
+            <h3>Site operatives <span>{c.operatives.length} qualifications</span></h3>
+            <ul>{c.operatives.map((i) => <li>{i}</li>)}</ul>
+          </div>
         </div>
         <div class="certrow">
           {c.certs.map((x) => <img src={x.img} alt="Certification" loading="lazy" />)}

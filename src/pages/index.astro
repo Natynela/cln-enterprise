@@ -63,11 +63,11 @@ import { site, nav, hero, about, services, certifications as c, gallery } from '
           <p class="lead">{c.intro}</p>
         </div>
         <div class="cert-lists">
-          <div class="cert-group">
+          <div class="cert-group cert-group--management">
             <h3>Management <span>{c.management.length} qualifications</span></h3>
             <ul>{c.management.map((i) => <li>{i}</li>)}</ul>
           </div>
-          <div class="cert-group">
+          <div class="cert-group cert-group--operatives">
             <h3>Site operatives <span>{c.operatives.length} qualifications</span></h3>
             <ul>{c.operatives.map((i) => <li>{i}</li>)}</ul>
           </div>

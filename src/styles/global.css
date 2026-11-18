@@ -152,16 +152,17 @@ p { margin: 0 0 1rem; }
 
 /* Certifications */
 .certs-panel { padding: clamp(1.5rem, 5vw, 4rem); border: 1px solid var(--line); border-radius: 28px; background: #fff; box-shadow: var(--shadow); }
-.certs-panel .section-heading { max-width: 920px; margin-left: 0; }
+.certs-panel .section-heading { max-width: none; margin: 0 0 2rem; }
 .certs-panel .section-heading > p:last-child { margin-left: 0; }
-.certs-panel .lead { max-width: 76ch; color: var(--muted); }
-.cert-lists { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, .8fr); gap: 1rem; }
-.cert-group { min-width: 0; padding: clamp(1.1rem, 2.5vw, 1.6rem); border: 1px solid var(--line); border-radius: 16px; background: var(--bg); }
-.cert-lists h3, .responsibilities h3 { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem; margin: 0 0 1rem; color: var(--brand-dark); }
-.cert-lists h3 span { color: var(--muted); font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
-.certs ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem 1.25rem; margin: 0; padding: 0; list-style: none; }
-.certs li { position: relative; align-self: start; padding: .25rem 0 .25rem 1.25rem; color: var(--muted); font-size: .94rem; line-height: 1.55; }
-.certs li::before { position: absolute; top: .65em; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); content: ""; }
+.certs-panel .lead { max-width: 92ch; color: var(--text); font-size: 1.05rem; line-height: 1.7; }
+.cert-lists { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr); align-items: stretch; gap: 1rem; }
+.cert-group { min-width: 0; padding: clamp(1.15rem, 2.5vw, 1.65rem); border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: 0 8px 24px rgba(23,42,70,.045); }
+.cert-lists h3, .responsibilities h3 { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .65rem; margin: 0 0 1rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); color: var(--navy); }
+.cert-lists h3 span { padding: .28rem .55rem; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--brand-dark); font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.certs ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1.35rem; margin: 0; padding: 0; list-style: none; }
+.cert-group--operatives ul { grid-template-columns: 1fr; }
+.certs li { position: relative; align-self: start; padding: .2rem 0 .2rem 1.35rem; color: var(--text); font-size: 1rem; line-height: 1.6; }
+.certs li::before { position: absolute; top: .72em; left: .1rem; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); content: ""; }
 .certrow { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin: 2.5rem 0; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
 .certrow a { display: grid; min-height: 96px; place-items: center; padding: .4rem; border-radius: 12px; background: #fff; }
 .certrow img { width: auto; height: 94px; max-width: 180px; border-radius: 8px; object-fit: contain; }

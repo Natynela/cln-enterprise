@@ -69,7 +69,7 @@ export const services = [
 
 export const certifications = {
   intro:
-    'We employ a professional team fully experienced in all interior aspects of the construction industry. Ongoing training ensures the team is updated to ensure full compliance with the requirements of CDM Construction (Design and Management) Regulations 2015. Discover the standards and accreditations that define our excellence.',
+    'Our management team and site operatives bring experience across construction and interior works. Relevant qualifications and ongoing training support safe working practices and compliance with CDM 2015. The standards below highlight the training and credentials held across both teams.',
   management: [
     'CSCS (Construction Skills Certification Scheme)', 'Relevant NVQ', 'PASMA Trained',
     'SMSTS Qualified (Site Management Safety Training Scheme)', 'First Aid Qualified',

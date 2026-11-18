@@ -154,7 +154,7 @@ p { margin: 0 0 1rem; }
 .certs-panel { padding: clamp(1.5rem, 5vw, 4rem); border: 1px solid var(--line); border-radius: 28px; background: #fff; box-shadow: var(--shadow); }
 .certs-panel .section-heading { max-width: none; margin: 0 0 2rem; }
 .certs-panel .section-heading > p:last-child { margin-left: 0; }
-.certs-panel .lead { max-width: 92ch; color: var(--text); font-size: 1.05rem; line-height: 1.7; }
+.certs-panel .lead { width: 100%; max-width: none; color: var(--text); font-size: 1.05rem; line-height: 1.7; }
 .cert-lists { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr); align-items: stretch; gap: 1rem; }
 .cert-group { min-width: 0; padding: clamp(1.15rem, 2.5vw, 1.65rem); border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: 0 8px 24px rgba(23,42,70,.045); }
 .cert-lists h3, .responsibilities h3 { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .65rem; margin: 0 0 1rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); color: var(--navy); }

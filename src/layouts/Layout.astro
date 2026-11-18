@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { site, hero, services } from '../data/site';
+import { site, services } from '../data/site';
 const { title = site.title, description = site.description } = Astro.props;
 const canonicalUrl = Astro.site?.href ?? new URL('/', Astro.url).href;
 const socialImage = new URL('/assets/images/925c0b_0cf384fafe56c29ed35d07cf832e1fca.webp', canonicalUrl).href;
@@ -66,7 +66,8 @@ const structuredData = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <meta name="twitter:image:alt" content="LMJ Enterprise construction and finishing project" />
-    <link rel="icon" type="image/jpeg" href={logoUrl} />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="alternate icon" type="image/jpeg" href={logoUrl} />
     <link rel="sitemap" type="application/xml" href={new URL('/sitemap.xml', canonicalUrl).href} />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
   </head>

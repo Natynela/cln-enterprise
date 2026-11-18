@@ -1,7 +1,46 @@
 ---
 import '../styles/global.css';
-import { site } from '../data/site';
+import { site, hero, services } from '../data/site';
 const { title = site.title, description = site.description } = Astro.props;
+const canonicalUrl = Astro.site?.href ?? new URL('/', Astro.url).href;
+const socialImage = new URL('/assets/images/925c0b_0cf384fafe56c29ed35d07cf832e1fca.webp', canonicalUrl).href;
+const logoUrl = new URL('/assets/images/IMG_0216.jpg', canonicalUrl).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'GeneralContractor',
+  name: site.name,
+  url: canonicalUrl,
+  logo: logoUrl,
+  image: socialImage,
+  description,
+  email: site.email,
+  telephone: site.phone,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '164 Lowry Crescent',
+    addressLocality: 'Mitcham',
+    addressRegion: 'London',
+    postalCode: 'CR4 3QU',
+    addressCountry: 'GB',
+  },
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'London',
+  },
+  sameAs: [site.linkedin, site.facebook],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Construction and finishing services',
+    itemListElement: services.map((service) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.text,
+      },
+    })),
+  },
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -10,13 +49,26 @@ const { title = site.title, description = site.description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#172a46" />
-    <link rel="canonical" href={Astro.site?.href} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Lmjenterprise.com" />
-    <link rel="icon" href={site.logo} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="LMJ Enterprise construction and finishing project" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content="LMJ Enterprise construction and finishing project" />
+    <link rel="icon" type="image/jpeg" href={logoUrl} />
+    <link rel="sitemap" type="application/xml" href={new URL('/sitemap.xml', canonicalUrl).href} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
   </head>
   <body><slot /></body>
 </html>

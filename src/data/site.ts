@@ -10,9 +10,9 @@ export const img = (filename: string) =>
 
 export const site = {
   name: 'LMJ Enterprise',
-  title: 'LMJ Enterprise | French Polishing | 164 Lowry Crescent, Mitcham CR4 3QU, United Kingdom',
+  title: 'LMJ Enterprise | Construction & Finishing Services in London',
   description:
-    'Welcome to LMJ Enterprise, your premier destination for French polishing and a range of complementary services. With a commitment to excellence and attention to detail, we specialize in providing top-tier French polishing services alongside a suite of related offerings. From furniture restoration to wood finishing, our skilled artisans bring decades of experience and expertise to every project.',
+    'LMJ Enterprise provides French polishing, dry lining, carpentry, cladding, cleaning and fire protection services in Mitcham and across London.',
   logo: img('IMG_0216.jpg'),
   address: 'United Kingdom, London, Merton, 164 Lowry Crescent, CR4 3QU',
   email: 'Lmjenterpriseltd@gmail.com',

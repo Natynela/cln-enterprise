@@ -73,8 +73,9 @@ import { site, nav, hero, about, services, certifications as c, gallery } from '
           </div>
         </div>
         <div class="certrow">
-          {c.certs.map((x) => <img src={x.img} alt="Certification" loading="lazy" />)}
-          {c.logos.map((src) => <img class="logo" src={src} alt="Accreditation logo" loading="lazy" />)}
+          {c.logos.map((logo) => (
+            <div class="cert-logo"><img src={logo.image} alt={logo.name} loading="lazy" /></div>
+          ))}
         </div>
         <div class="responsibilities">
           <div><h3>Our responsibilities</h3><p>{c.responsibilities}</p></div>

@@ -76,15 +76,11 @@ export const certifications = {
     'Risk Assessment and Method Statement Preparation',
   ],
   operatives: ['CSCS (Construction Skills Certification Scheme)', 'IPAF Training'],
-  certs: [
-    { img: img('download (1).jpg') },
-    { img: img('R.jpg') },
-  ],
   logos: [
-    'w-900_h-500_m-cover_s-any__Chas-Logo2.jpg',
-    'download (1).jpg',
-    'R.jpg',
-  ].map(img),
+    { image: img('w-900_h-500_m-cover_s-any__Chas-Logo2.jpg'), name: 'CHAS Accredited Contractor' },
+    { image: img('download (1).jpg'), name: 'PASMA' },
+    { image: img('R.jpg'), name: 'IPAF' },
+  ],
   responsibilities:
     'Will provide and maintain as far as possible: a safe working environment; safe systems of work; plant and substances in safe condition; information, instruction, training and supervision that is reasonably necessary to ensure that each employee is safe from injury and risks to health; a commitment to consult and co-operate with employees in all matters relating to health and safety in the workplace; a commitment to continually improve our performance through effective safety management.',
   safetyImage: img('IMG-20241111-WA0001.jpg'),
